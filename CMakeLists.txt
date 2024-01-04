@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8.11)
 set(PROJ_NAME ALMRun)
-set(CMAKE_VS_PLATFORM_TOOLSET v110_xp)
+set(CMAKE_VS_PLATFORM_TOOLSET v141)
 project(${PROJ_NAME})
 # platform
 math(EXPR BIT "${CMAKE_SIZEOF_VOID_P} * 8")
