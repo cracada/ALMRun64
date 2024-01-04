@@ -1,15 +1,15 @@
 @echo off
-title ALMRun �Զ�����ű� by chenall http://almrun.chenall.net
+title ALMRun 自动编译脚本 by chenall http://almrun.chenall.net
 setlocal
 REM 
-REM ������wxWidgets��û�а�װ������λ����ɾ����һ�е�REMע�ͣ����޸�Ϊ��ȷ��λ�ã������޷�����
-REM set WXWIN=D:\dev\wxWidgets-3.0.0
+REM 如果你的wxWidgets库没有安装在以下位置请删除下一行的REM注释，并修改为正确的位置，否则无法编译
+REM set WXWIN=C:\wxWidgets-3.1.4
 REM
-REM ����ʹ�þ�̬�����,��������������ļ���������DLL�ļ�.(Ŀǰֻ��LUA��)
-REM ��ͬ����ִ��Build.cmdʱ���ϲ���static
+REM 设置使用静态库编译,这样编译产生的文件将不依赖DLL文件.(目前只有LUA库)
+REM 等同于在执行Build.cmd时加上参数static
 REM set STATIC=1
 REM
-REM PARAMS ��Ҫ���ӵĲ���
+REM PARAMS 需要附加的参数
 set PARAMS=
 
 if /i "%1"=="STATIC" set STATIC=1
@@ -34,17 +34,17 @@ copy /y README.md bin\doc\ > nul
 copy /y README.md bin\ > nul
 echo.
 echo.
-echo ����ɹ���ɣ����ɵ��ļ���BINĿ¼�¡�
+echo 编译成功完成，生成的文件在BIN目录下。
 echo.
 goto :END
 :ERR_CMAKE
 echo.
-echo ϵͳδ��װCMAKE�������������롣
+echo 系统未安装CMAKE，无启启动编译。
 echo.
 goto :END
 :NEED_VS100
 echo.
-echo ϵͳδ��װVS2010�����ϰ汾�������������롣
+echo 系统未安装VS2010或以上版本，无启启动编译。
 echo.
 :END
 pause
